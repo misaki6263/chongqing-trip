@@ -155,6 +155,61 @@
   .check-item input[type="checkbox"]:checked ~ .check-text{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold);}
   .check-item .check-text a{color:var(--d3);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
   .checklist + .checklist{margin-top:12px;}
+  .flight-card{
+    margin:22px 16px 8px;
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:0 10px 28px rgba(20,58,52,.12);
+    scroll-margin-top:86px;
+  }
+  .flight-card h2{
+    font-family:'Shippori Mincho',serif;
+    font-size:19px;
+    margin:0 0 5px;
+    color:var(--text);
+  }
+  .flight-card .section-note{margin-bottom:14px;}
+  .flight-list{display:grid;gap:10px;}
+  .flight-row{
+    display:grid;
+    grid-template-columns:54px 1fr;
+    gap:10px;
+    align-items:center;
+    padding:12px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:14px;
+  }
+  .flight-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--d2);
+    text-align:center;
+  }
+  .flight-route{display:flex;align-items:center;gap:8px;min-width:0;}
+  .flight-airport{flex:1;min-width:0;}
+  .flight-airport b{display:block;font-size:14px;color:var(--text);}
+  .flight-airport span{display:block;margin-top:3px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+  .flight-arrow{flex:0 0 auto;color:var(--gold);font-size:18px;font-weight:800;}
+  .hotel-card{margin-top:12px;}
+  .hotel-box{
+    padding:14px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:14px;
+  }
+  .hotel-name{font-size:16px;font-weight:800;line-height:1.55;color:var(--text);}
+  .hotel-meta{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 12px;}
+  .hotel-meta span{
+    padding:5px 9px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid var(--line);
+    color:var(--muted);
+    font-size:12px;
+  }
   .section-note{font-size:12px;color:var(--muted);line-height:1.65;margin:-4px 0 10px;}
 
   /* ---------- attraction gallery ---------- */
@@ -380,23 +435,76 @@
     </div>
   </section>
 
+  <section class="flight-card" id="transport">
+    <h2>✈️ 來回航班資訊</h2>
+    <p class="section-note">去程與回程共 4 段班機，時間皆為當地時間。</p>
+    <div class="flight-list">
+      <div class="flight-row">
+        <div class="flight-date">9/15<br>去程①</div>
+        <div class="flight-route">
+          <div class="flight-airport"><b>桃園 T2</b><span>15:45 出發</span></div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-airport"><b>香港</b><span>18:10 抵達</span></div>
+        </div>
+      </div>
+      <div class="flight-row">
+        <div class="flight-date">9/15<br>去程②</div>
+        <div class="flight-route">
+          <div class="flight-airport"><b>香港</b><span>20:55 出發</span></div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-airport"><b>重慶江北 T3</b><span>23:30 抵達</span></div>
+        </div>
+      </div>
+      <div class="flight-row">
+        <div class="flight-date">9/20<br>回程①</div>
+        <div class="flight-route">
+          <div class="flight-airport"><b>重慶江北 T3</b><span>08:50 出發</span></div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-airport"><b>香港</b><span>11:20 抵達</span></div>
+        </div>
+      </div>
+      <div class="flight-row">
+        <div class="flight-date">9/20<br>回程②</div>
+        <div class="flight-route">
+          <div class="flight-airport"><b>香港</b><span>12:55 出發</span></div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-airport"><b>桃園 T2</b><span>14:45 抵達</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flight-card hotel-card" id="hotel">
+    <h2>🏨 住宿飯店</h2>
+    <p class="section-note">6天5夜全程入住同一間飯店。</p>
+    <div class="hotel-box">
+      <div class="hotel-name">重慶解放碑洪崖洞桔子水晶酒店</div>
+      <div class="hotel-meta">
+        <span>入住：9/15</span>
+        <span>退房：9/20</span>
+        <span>共 5 晚</span>
+      </div>
+      <a class="map-btn" data-amap-keyword="%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97" href="iosamap://path?sourceApplication=ChongqingTrip&amp;dname=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&amp;dev=0&amp;t=0">直接開啟高德 App</a>
+    </div>
+  </section>
+
   <section class="checklist" id="todo">
     <h2>✅ 出發前待辦事項</h2>
     <p class="section-note">出發前需要完成、下載或準備的事項；勾選狀態會保存在這台手機。</p>
     <label class="check-item"><input type="checkbox"><span class="check-text">🛂 台胞證、護照及電子機票</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">💳 支付寶、微信完成實名認證</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">📲 下載美團app、高德地圖、滴滴打車</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">🚇 旅平險、旅遊不便險</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">📶 準備中國可使用的網卡或eSIM</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">💳 支付寶、微信完成實名認證並綁定信用卡</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">📲 下載美團、高德地圖、滴滴打車</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🚇 每人開通自己的重慶乘車碼</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">📶 準備中國可使用的網卡、eSIM 或國際漫遊</span></label>
   </section>
 
   <section class="checklist" id="luggage">
     <h2>🧳 行李清單</h2>
     <p class="section-note">穿著與隨身用品分開整理，出發前可逐項確認。</p>
-    <label class="check-item"><input type="checkbox"><span class="check-text">🔋 行動電源須在隨身行李，不可托運</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">👟 穿輕便舒適好走的鞋</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🔋 行動電源須隨身攜帶，不可托運</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">👟 穿輕便、舒適、好走的鞋</span></label>
     <label class="check-item"><input type="checkbox"><span class="check-text">👗 不穿長裙或短裙，方便階梯與長時間步行</span></label>
-    <label class="check-item"><input type="checkbox"><span class="check-text">🕶️ 防曬：墨鏡、防曬外套、帽子、防曬乳、防蚊液</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🕶️ 防曬：墨鏡、防曬外套、帽子、防曬乳</span></label>
     <label class="check-item"><input type="checkbox"><span class="check-text">💊 常備藥</span></label>
   </section>
 
