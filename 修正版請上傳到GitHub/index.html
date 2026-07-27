@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>重慶 6天5夜｜2026.09.15–09.20</title>
+<meta name="description" content="重慶 6天5夜手機旅遊行程">
+<meta name="theme-color" content="#173F5F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="重慶行程">
+<link rel="icon" type="image/png" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="重慶 6天5夜旅遊行程">
+<meta property="og:description" content="2026/9/15–9/20 重慶手機版行程">
+<meta property="og:url" content="https://misaki6263.github.io/chongqing-trip/">
+<meta property="og:image" content="https://misaki6263.github.io/chongqing-trip/app-icon.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#EAF4F2;
+    --ink2:#DCECE8;
+    --ink3:#CDE3DE;
+    --paper:#FFFFFF;
+    --paper-dim:#F2F8F6;
+    --line:#C9DDD8;
+    --text:#173832;
+    --muted:#627B75;
+    --muted-on-ink:#3F6860;
+    --red:#E06C58;
+    --gold:#D49A45;
+    --d0:#E98A4B;
+    --d1:#3A9D8F;
+    --d2:#3289B8;
+    --d3:#4E9B63;
+    --d4:#6286B7;
+    --d5:#A46F92;
+    --radius:20px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Noto Sans TC','Hiragino Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .app{max-width:560px;margin:0 auto;background:var(--ink);min-height:100vh;position:relative;}
+
+  /* ---------- sticky station tabs ---------- */
+  .tabs-wrap{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg,rgba(234,244,242,.98) 82%,rgba(234,244,242,0));
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    border-bottom:1px solid rgba(23,56,50,.08);
+  }
+  .tabs-wrap::-webkit-scrollbar{display:none;}
+  .tabs-inner{display:flex;width:max-content;padding:14px 16px 10px;gap:2px;}
+  .tab{
+    appearance:none;border:none;background:none;cursor:pointer;text-decoration:none;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    padding:6px 14px;border-radius:12px;
+    font-family:'JetBrains Mono',monospace;
+    color:var(--muted-on-ink);
+    transition:background .2s ease,color .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .tab .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(255,255,255,.06);}
+  .tab .d-num{font-size:11px;letter-spacing:.06em;font-weight:700;}
+  .tab .d-date{font-size:10px;opacity:.85;}
+  .tab.active{background:#fff;color:var(--text);box-shadow:0 6px 18px rgba(42,91,81,.12);}
+  .tab.active .d-num{color:var(--accent);}
+  .tab:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:28px 20px 20px;color:var(--text);}
+  .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted-on-ink);text-transform:uppercase;}
+  .hero h1{
+    font-family:'Shippori Mincho',serif;font-weight:800;
+    font-size:34px;line-height:1.25;margin:10px 0 6px;color:var(--text);
+  }
+  .hero p.sub{margin:0 0 20px;color:var(--muted-on-ink);font-size:13.5px;line-height:1.7;}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .legend span{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;color:var(--text);background:rgba(255,255,255,.72);
+    padding:6px 10px 6px 8px;border-radius:999px;border:1px solid var(--line);
+  }
+  .legend i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:0 0 auto;}
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    margin:18px 0 4px;padding:16px 18px;
+    background:linear-gradient(135deg,#FFFFFF,#E4F2EE);border:1px solid var(--line);
+    border-radius:14px;
+  }
+  .countdown .cd-label{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+    color:var(--muted-on-ink);text-transform:uppercase;margin-bottom:8px;
+  }
+  .countdown .cd-value{
+    font-family:'Shippori Mincho',serif;font-weight:800;font-size:22px;color:var(--text);line-height:1.4;
+  }
+  .countdown .cd-value b{color:var(--d0);font-family:'JetBrains Mono',monospace;font-size:26px;padding:0 2px;}
+  .countdown .cd-note{font-size:11.5px;color:var(--muted-on-ink);margin-top:6px;}
+
+  /* ---------- today badge ---------- */
+  .today-badge{
+    display:inline-block;font-family:'JetBrains Mono',monospace;
+    font-size:11px;font-weight:700;letter-spacing:.08em;
+    background:#fff;color:var(--accent);
+    padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.55;}}
+  .tab .today-dot{
+    width:5px;height:5px;border-radius:50%;background:var(--d0);
+    position:absolute;top:6px;right:8px;
+  }
+  .tab{position:relative;}
+
+  /* ---------- checklist ---------- */
+  .checklist{margin:22px 16px 8px;background:var(--paper);border-radius:var(--radius);padding:18px 18px 6px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);}
+  .checklist h2{
+    font-family:'Shippori Mincho',serif;font-size:17px;margin:0 0 12px;color:var(--text);
+    display:flex;align-items:center;gap:8px;
+  }
+  .check-item{
+    display:flex;gap:11px;align-items:flex-start;padding:12px 0;
+    border-top:1px dashed var(--line);cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .check-item:first-of-type{border-top:none;}
+  .check-item input[type="checkbox"]{
+    appearance:none;-webkit-appearance:none;
+    flex:0 0 auto;width:20px;height:20px;margin:1px 0 0;
+    border:2px solid var(--gold);border-radius:6px;background:#fff;
+    cursor:pointer;position:relative;transition:background .15s ease,border-color .15s ease;
+  }
+  .check-item input[type="checkbox"]:checked{background:var(--gold);border-color:var(--gold);}
+  .check-item input[type="checkbox"]:checked:after{
+    content:'';position:absolute;left:5px;top:1.5px;width:5px;height:10px;
+    border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);
+  }
+  .check-item .check-text{font-size:14px;line-height:1.55;color:var(--text);}
+  .check-item input[type="checkbox"]:checked ~ .check-text{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold);}
+  .check-item .check-text a{color:var(--d3);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .checklist + .checklist{margin-top:12px;}
+  .section-note{font-size:12px;color:var(--muted);line-height:1.65;margin:-4px 0 10px;}
+
+  /* ---------- attraction gallery ---------- */
+  .attractions{margin:22px 16px 8px;scroll-margin-top:92px;}
+  .attractions-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 2px 12px;}
+  .attractions-title h2{font-family:'Shippori Mincho',serif;font-size:21px;color:var(--text);margin:0;}
+  .attractions-title span{font-size:11px;color:var(--muted);}
+  .attraction-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .attraction-card{
+    overflow:hidden;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:0 10px 28px rgba(42,91,81,.12);
+  }
+  .attraction-card img{display:block;width:100%;height:196px;object-fit:cover;background:var(--ink2);}
+  .attraction-copy{padding:15px 16px 16px;}
+  .attraction-copy h3{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--text);margin:0 0 7px;}
+  .attraction-copy p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 11px;}
+  .photo-credit{display:block;margin-top:8px;font-size:9.5px;color:var(--muted);}
+  .photo-credit a{color:inherit;text-underline-offset:2px;}
+
+  /* ---------- day sections ---------- */
+  .day{scroll-margin-top:78px;padding:26px 16px 6px;}
+  .day-card{background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.35);}
+  .day-head{background:var(--accent);padding:20px 20px 18px;color:#fff;position:relative;}
+  .day-head .num{font-family:'Shippori Mincho',serif;font-weight:800;font-size:15px;letter-spacing:.08em;opacity:.9;}
+  .day-head .date{font-family:'JetBrains Mono',monospace;font-size:12.5px;opacity:.9;margin-top:2px;}
+  .day-head h3{font-family:'Shippori Mincho',serif;font-size:22px;margin:8px 0 12px;line-height:1.3;}
+  .day-meta{display:flex;flex-wrap:wrap;gap:8px;}
+  .day-meta span{font-size:11.5px;background:rgba(255,255,255,.18);padding:5px 10px;border-radius:999px;}
+
+  .route-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:16px 20px 4px;font-size:12px;color:var(--muted);}
+  .route-chips b{background:var(--paper-dim);color:var(--text);padding:4px 9px;border-radius:8px;font-weight:600;}
+  .route-chips .arrow{color:var(--line);}
+
+  .stat-row{display:flex;gap:14px;padding:12px 20px 4px;flex-wrap:wrap;}
+  .stat-row div{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+  .stat-row b{color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12.5px;}
+
+  .tip{margin:16px 20px 4px;background:var(--paper-dim);border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;padding:11px 13px;font-size:12.5px;color:var(--text);line-height:1.6;}
+  .tip b{color:var(--accent);font-weight:700;}
+
+  /* ---------- timeline ---------- */
+  .timeline{list-style:none;margin:18px 8px 4px;padding:0 12px 16px;position:relative;}
+  .timeline:before{content:'';position:absolute;left:66px;top:6px;bottom:16px;width:2px;background:var(--line);}
+  .stop{position:relative;padding:0 0 22px 0;display:flex;gap:12px;}
+  .stop:last-child{padding-bottom:4px;}
+  .stop-time{
+    flex:0 0 54px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
+    text-align:right;padding-top:2px;line-height:1.5;
+  }
+  .stop-dot-wrap{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;padding-top:4px;position:relative;z-index:1;}
+  .stop-dot{width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+  .stop-body{flex:1;min-width:0;padding-bottom:2px;}
+  .stop-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+  .tag{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;color:#fff;white-space:nowrap;}
+  .tag-住宿{background:var(--gold);}
+  .tag-用餐{background:var(--red);}
+  .tag-移動{background:#7C88A6;}
+  .tag-景點{background:var(--accent);}
+  .tag-購物{background:#4C7A56;}
+  .stop-body h4{margin:0;font-size:14.5px;line-height:1.4;color:var(--text);}
+  .stop-addr{margin:2px 0 6px;font-size:12px;color:var(--muted);}
+  .stop-metaline{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+  .stop-metaline span{font-size:11.5px;color:var(--muted);display:inline-flex;align-items:center;gap:4px;}
+  .map-btn{
+    display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;
+    color:var(--accent);text-decoration:none;border:1.4px solid var(--accent);
+    padding:5px 11px;border-radius:999px;transition:background .15s ease,color .15s ease;
+  }
+  .map-btn:hover, .map-btn:focus-visible{background:var(--accent);color:#fff;}
+
+  /* ---------- next-stop nav & copy buttons ---------- */
+  .nav-btn,.copy-btn{
+    display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;
+    text-decoration:none;padding:5px 11px;border-radius:999px;cursor:pointer;
+    transition:background .15s ease,color .15s ease;margin-left:6px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .nav-btn{color:#4C7A56;border:1.4px solid #4C7A56;}
+  .nav-btn:hover,.nav-btn:focus-visible{background:#4C7A56;color:#fff;}
+  .copy-btn{color:var(--gold);border:1.4px solid var(--gold);background:none;font-family:inherit;}
+  .copy-btn:hover,.copy-btn:focus-visible{background:var(--gold);color:#fff;}
+  .copy-btn.copied{background:var(--gold);color:#fff;}
+
+  /* ---------- "now" indicator ---------- */
+  .stop.now{
+    background:rgba(224,138,30,.09);
+    border-radius:12px;margin:0 -8px;padding-left:8px;padding-right:8px;padding-top:8px;
+  }
+  .stop.now .stop-dot{background:var(--d0);box-shadow:0 0 0 2px var(--d0),0 0 12px rgba(224,138,30,.6);}
+  .now-chip{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+    background:var(--d0);color:#fff;padding:2px 8px;border-radius:999px;
+    animation:pulse 2s ease-in-out infinite;
+  }
+
+  /* ---------- currency converter ---------- */
+  .fx-card{
+    margin:22px 16px 8px;background:var(--paper);border-radius:var(--radius);
+    padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.35);
+  }
+  .fx-card h2{font-family:'Shippori Mincho',serif;font-size:17px;margin:0 0 12px;color:var(--text);}
+  .fx-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .fx-row label{font-size:12px;color:var(--muted);}
+  .fx-row input{
+    width:110px;padding:9px 11px;border:1.4px solid var(--line);border-radius:10px;
+    font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--text);
+    background:#fff;outline:none;
+  }
+  .fx-row input:focus{border-color:var(--gold);}
+  .fx-eq{font-size:15px;color:var(--muted);}
+  .fx-result{
+    font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;color:var(--red);
+    min-width:100px;
+  }
+  .fx-rate-row{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .fx-rate-row label{font-size:12px;color:var(--muted);}
+  .fx-rate-row input{
+    width:80px;padding:6px 9px;border:1.4px solid var(--line);border-radius:8px;
+    font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text);background:#fff;outline:none;
+  }
+  .fx-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
+  .info-card{
+    margin:18px 16px 0;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);padding:18px;box-shadow:0 10px 28px rgba(42,91,81,.12);
+    scroll-margin-top:92px;
+  }
+  .info-card h2{font-family:'Shippori Mincho',serif;font-size:18px;margin:0 0 12px;color:var(--text);}
+  .info-card p,.info-card li{font-size:13px;line-height:1.75;color:var(--text);}
+  .info-card ul{margin:0;padding-left:20px;}
+  .info-card .mini{color:var(--muted);font-size:11.5px;margin-top:8px;}
+  .budget-line{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px;}
+  .budget-line:last-of-type{border-bottom:0;font-weight:800;color:var(--d3);}
+
+  .bottom-nav{
+    position:fixed;left:50%;bottom:0;z-index:55;transform:translateX(-50%);
+    width:min(560px,100%);display:grid;grid-template-columns:repeat(5,1fr);
+    background:rgba(255,255,255,.96);border-top:1px solid var(--line);
+    box-shadow:0 -8px 24px rgba(42,91,81,.13);padding:7px 5px calc(7px + env(safe-area-inset-bottom));
+    backdrop-filter:blur(12px);
+  }
+  .bottom-nav a{
+    text-decoration:none;color:var(--muted);font-size:10.5px;font-weight:700;
+    display:flex;flex-direction:column;align-items:center;gap:2px;padding:3px 1px;
+  }
+  .bottom-nav a span{font-size:17px;line-height:1;}
+
+  /* ---------- back to top ---------- */
+  #backTop{
+    position:fixed;right:16px;bottom:82px;z-index:60;
+    width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--paper);color:var(--ink);font-size:19px;
+    box-shadow:0 6px 18px rgba(0,0,0,.4);
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  #backTop.show{opacity:1;pointer-events:auto;}
+  #fxJump{
+    position:fixed;right:16px;bottom:138px;z-index:60;
+    width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--gold);color:#fff;font-size:19px;line-height:1;
+    box-shadow:0 6px 18px rgba(0,0,0,.4);
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .15s ease;
+  }
+  #fxJump:active{transform:scale(.92);}
+
+  /* ---------- print ---------- */
+  @media print{
+    body,.app{background:#fff;}
+    .tabs-wrap,.bottom-nav,.countdown,.map-btn,.nav-btn,.copy-btn,#backTop,#fxJump,.fx-card,footer{display:none !important;}
+    .hero{color:#000;padding:10px 0;}
+    .hero h1,.hero .sub{color:#000;}
+    .hero-eyebrow,.hero p.sub{color:#444;}
+    .legend span{color:#000;border-color:#ccc;background:none;}
+    .day{padding:14px 0 4px;page-break-inside:avoid;}
+    .day-card,.checklist,.attraction-card{box-shadow:none;border:1px solid #ddd;}
+    .attraction-card img{height:140px;}
+    .day-head{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .timeline:before{background:#ccc;}
+    .stop{page-break-inside:avoid;}
+  }
+
+  footer{padding:34px 20px 108px;text-align:center;color:var(--muted-on-ink);font-size:11.5px;line-height:1.8;}
+  footer b{color:var(--text);}
+  /* 無時間版本：時間欄與每日預算已移除 */
+  .timeline:before{left:17px;}
+  .stop{gap:12px;}
+  .stop-dot-wrap{margin-left:0;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Sticky station tabs：真實 <a href> 錨點，JS 失效時仍可原生跳轉 -->
+  <nav class="tabs-wrap" aria-label="日期導覽">
+    <div class="tabs-inner" id="tabsInner">
+      <a href="#day0" class="tab" data-target="day0" style="--accent:var(--d0)"><span class="dot"></span><span class="d-num">DAY 1</span><span class="d-date">9/15</span></a>
+      <a href="#day1" class="tab" data-target="day1" style="--accent:var(--d1)"><span class="dot"></span><span class="d-num">DAY 2</span><span class="d-date">9/16</span></a>
+      <a href="#day2" class="tab" data-target="day2" style="--accent:var(--d2)"><span class="dot"></span><span class="d-num">DAY 3</span><span class="d-date">9/17</span></a>
+      <a href="#day3" class="tab" data-target="day3" style="--accent:var(--d3)"><span class="dot"></span><span class="d-num">DAY 4</span><span class="d-date">9/18</span></a>
+      <a href="#day4" class="tab" data-target="day4" style="--accent:var(--d4)"><span class="dot"></span><span class="d-num">DAY 5</span><span class="d-date">9/19</span></a>
+      <a href="#day5" class="tab" data-target="day5" style="--accent:var(--d5)"><span class="dot"></span><span class="d-num">DAY 6</span><span class="d-date">9/20</span></a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-eyebrow">CHONGQING・2026.09.15 → 09.20</div>
+    <h1>重慶 6天5夜</h1>
+    <p class="sub">8 人山城慢遊：穿樓輕軌、立體老街、洪崖洞夜景與武隆喀斯特。以長江藍、山林綠與霧灰白呈現清爽好讀的每日路線。</p>
+    <div class="countdown" id="countdown">
+      <div class="cd-label">Countdown to Chongqing</div>
+      <div class="cd-value" id="cdValue">計算中…</div>
+      <div class="cd-note">出發日期：2026/9/15（二）・桃園機場 T2</div>
+    </div>
+    <div class="legend">
+      <span><i style="--c:var(--d0)"></i>啟程抵達</span>
+      <span><i style="--c:var(--d1)"></i>山城夜景</span>
+      <span><i style="--c:var(--d2)"></i>魔幻交通</span>
+      <span><i style="--c:var(--d3)"></i>武隆奇景</span>
+      <span><i style="--c:var(--d4)"></i>南岸慢遊</span>
+      <span><i style="--c:var(--d5)"></i>香港轉機</span>
+    </div>
+  </section>
+
+  <section class="checklist" id="todo">
+    <h2>✅ 出發前待辦事項</h2>
+    <p class="section-note">出發前需要完成、下載或準備的事項；勾選狀態會保存在這台手機。</p>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🛂 台胞證、護照及電子機票</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">💳 支付寶、微信完成實名認證並綁定信用卡</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">📲 下載美團、高德地圖、滴滴打車</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🚇 每人開通自己的重慶乘車碼</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">📶 準備中國可使用的網卡、eSIM 或國際漫遊</span></label>
+  </section>
+
+  <section class="checklist" id="luggage">
+    <h2>🧳 行李清單</h2>
+    <p class="section-note">穿著與隨身用品分開整理，出發前可逐項確認。</p>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🔋 行動電源須隨身攜帶，不可托運</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">👟 穿輕便、舒適、好走的鞋</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">👗 不穿長裙或短裙，方便階梯與長時間步行</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">🕶️ 防曬：墨鏡、防曬外套、帽子、防曬乳</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">💊 常備藥</span></label>
+  </section>
+
+
+  <!-- DAY 0 -->
+  <section class="day" id="day0" style="--accent:var(--d0)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 1</div>
+        <div class="date">9/15（二）</div>
+        <h3>出發・抵達重慶</h3>
+        <div class="day-meta"><span>🏨 重慶解放碑洪崖洞桔子水晶酒店</span></div>
+      </div>
+      <div class="route-chips"><b>桃園 T2</b><span class="arrow">›</span><b>香港轉機</b><span class="arrow">›</span><b>重慶江北 T3</b><span class="arrow">›</span><b>飯店</b></div>
+      <div class="stat-row"><div>航班 <b>2</b></div><div>轉機 <b>1</b></div><div>移動 <b>2</b></div><div>住宿 <b>1</b></div></div>
+      <div class="tip"><b>今日提醒　</b>抵達重慶後辦理入境、領取行李，與包車司機會合後直接前往飯店休息。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>抵達桃園機場 T2，辦理報到與托運</h4></div>
+    <p class="stop-addr">桃園國際機場第二航廈</p>
+    <div class="stop-metaline"><span>✈️ 準備搭乘第一段航班</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%8F%B0%E6%B9%BE%E6%A1%83%E5%9B%AD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%8E%A6&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>桃園 T2 → 香港</h4></div>
+    <p class="stop-addr">香港國際機場</p>
+    <div class="stop-metaline"><span>✈️ 第一段航班</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>香港機場轉機</h4></div>
+    <p class="stop-addr">香港國際機場轉機區</p>
+    <div class="stop-metaline"><span>🧳 依轉機指示前往下一個登機門</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>香港 → 重慶江北機場 T3</h4></div>
+    <p class="stop-addr">重慶江北國際機場第三航廈</p>
+    <div class="stop-metaline"><span>✈️ 第二段航班</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BAT3%E8%88%AA%E7%AB%99%E6%A5%BC&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>入境、領取行李</h4></div>
+    <p class="stop-addr">重慶江北國際機場 T3 抵達層</p>
+    <div class="stop-metaline"><span>🛂 與包車司機會合</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BAT3%E8%88%AA%E7%AB%99%E6%A5%BC&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-住宿">住宿</span><h4>包車前往飯店，深夜入住休息</h4></div>
+    <p class="stop-addr">重慶解放碑洪崖洞桔子水晶酒店</p>
+    <div class="stop-metaline"><span>🚐 機場接送</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+  <!-- DAY 1 -->
+  <section class="day" id="day1" style="--accent:var(--d1)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 2</div>
+        <div class="date">9/16（三）</div>
+        <h3>長江索道・南岸老街</h3>
+        <div class="day-meta"><span>🏨 重慶解放碑洪崖洞桔子水晶酒店</span></div>
+      </div>
+      <div class="route-chips"><b>長江索道</b><span class="arrow">›</span><b>下浩里</b><span class="arrow">›</span><b>龍門浩</b><span class="arrow">›</span><b>返回飯店</b></div>
+      <div class="stat-row"><div>景點 <b>3</b></div><div>住宿 <b>1</b></div></div>
+      <div class="tip"><b>今日提醒　</b>長江索道建議提前確認候乘資訊；南岸老街坡道較多，沿途請放慢速度並適時休息。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>長江索道</h4></div>
+    <p class="stop-addr">重慶市渝中區新華路151號</p>
+    <div class="stop-metaline"><span>🚡 建議預留排隊時間，搭乘前確認預約／叫號</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E9%95%BF%E6%B1%9F%E7%B4%A2%E9%81%93%E5%8C%97%E7%AB%99+%E6%96%B0%E5%8D%8E%E8%B7%AF151%E5%8F%B7&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>下浩里老街</h4></div>
+    <p class="stop-addr">重慶市南岸區下浩里</p>
+    <div class="stop-metaline"><span>🚶 老街、坡道與文創小店</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E4%B8%8B%E6%B5%A9%E9%87%8C%E8%80%81%E8%A1%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>龍門浩老街</h4></div>
+    <p class="stop-addr">重慶市南岸區南濱路105號</p>
+    <div class="stop-metaline"><span>📷 古建築、觀景平台與夕陽</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E9%BE%99%E9%97%A8%E6%B5%A9%E8%80%81%E8%A1%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-住宿">住宿</span><h4>返回飯店</h4></div>
+    <p class="stop-addr">重慶解放碑洪崖洞桔子水晶酒店</p>
+    <div class="stop-metaline"><span>🚐 包車返回</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day" id="day2" style="--accent:var(--d2)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 3</div>
+        <div class="date">9/17（四）</div>
+        <h3>山城經典散步</h3>
+        <div class="day-meta"><span>🏨 重慶解放碑洪崖洞桔子水晶酒店</span></div>
+      </div>
+      <div class="route-chips"><b>佳實養老院</b><span class="arrow">›</span><b>山城巷</b><span class="arrow">›</span><b>十八梯</b><span class="arrow">›</span><b>解放碑</b><span class="arrow">›</span><b>魁星樓</b><span class="arrow">›</span><b>戴家巷</b><span class="arrow">›</span><b>洪崖洞</b><span class="arrow">›</span><b>飯店</b></div>
+      <div class="stat-row"><div>景點 <b>7</b></div><div>移動 <b>2</b></div><div>住宿 <b>1</b></div></div>
+      <div class="tip"><b>今日提醒　</b>山城步道由佳實養老院入口往下走較省力；沿途坡道與階梯較多，請依長輩體力保留休息時間。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>打車前往山城巷</h4></div>
+    <p class="stop-addr">重慶市渝中區領事巷8號</p>
+    <div class="stop-metaline"><span>🚐 導航「渝中區佳實養老院」</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%B8%82%E6%B8%9D%E4%B8%AD%E5%8C%BA%E4%BD%B3%E5%AE%9E%E5%85%BB%E8%80%81%E9%99%A2+%E9%A2%86%E4%BA%8B%E5%B7%B78%E5%8F%B7&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>山城巷老街・吊腳樓・山城步道江景</h4></div>
+    <p class="stop-addr">重慶市渝中區山城巷</p>
+    <div class="stop-metaline"><span>🚶 由上往下慢慢散步</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%B1%B1%E5%9F%8E%E5%B7%B7%E4%BC%A0%E7%BB%9F%E9%A3%8E%E8%B2%8C%E5%8C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>步行前往十八梯</h4></div>
+    <p class="stop-addr">重慶市渝中區中興路1號</p>
+    <div class="stop-metaline"><span>🚶 沿途多坡道與階梯</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%8D%81%E5%85%AB%E6%A2%AF%E4%BC%A0%E7%BB%9F%E9%A3%8E%E8%B2%8C%E5%8C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>打車到解放碑步行街旁</h4></div>
+    <p class="stop-addr">重慶市渝中區八一路177號雨田大廈</p>
+    <div class="stop-metaline"><span>🚐 導航「蘇寧易購解放碑步行街店」</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=Suning+Pro%E8%8B%8F%E5%AE%81%E6%98%93%E8%B4%AD+%E9%87%8D%E5%BA%86%E8%A7%A3%E6%94%BE%E7%A2%91%E6%AD%A5%E8%A1%8C%E8%A1%97%E5%BA%97+%E5%85%AB%E4%B8%80%E8%B7%AF177%E5%8F%B7&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>解放碑步行街</h4></div>
+    <p class="stop-addr">重慶市渝中區解放碑商圈</p>
+    <div class="stop-metaline"><span>📷 地標拍照、步行街自由逛</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E8%A7%A3%E6%94%BE%E7%A2%91%E6%AD%A5%E8%A1%8C%E8%A1%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>魁星樓</h4></div>
+    <p class="stop-addr">重慶市渝中區臨江門大唐廣場17號</p>
+    <div class="stop-metaline"><span>🌉 體驗一樓與二十二樓同在地面的魔幻地形</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E9%AD%81%E6%98%9F%E6%A5%BC&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>戴家巷崖壁步道</h4></div>
+    <p class="stop-addr">重慶市渝中區戴家巷</p>
+    <div class="stop-metaline"><span>🚶 崖壁步道、街區散步</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%88%B4%E5%AE%B6%E5%B7%B7%E5%B4%96%E5%A3%81%E6%AD%A5%E9%81%93&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>洪崖洞</h4></div>
+    <p class="stop-addr">重慶市渝中區嘉陵江濱江路88號</p>
+    <div class="stop-metaline"><span>📷 可先到千廝門大橋或江對岸看完整夜景</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%B0%91%E4%BF%97%E9%A3%8E%E8%B2%8C%E5%8C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-住宿">住宿</span><h4>返回飯店休息</h4></div>
+    <p class="stop-addr">重慶解放碑洪崖洞桔子水晶酒店</p>
+    <div class="stop-metaline"><span>🚐 包車／步行返回</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day" id="day3" style="--accent:var(--d3)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 4</div>
+        <div class="date">9/18（五）</div>
+        <h3>武隆自然景觀一日遊</h3>
+        <div class="day-meta"><span>🏨 重慶解放碑洪崖洞桔子水晶酒店</span></div>
+      </div>
+      <div class="route-chips"><b>重慶市區</b><span class="arrow">›</span><b>武隆</b><span class="arrow">›</span><b>天生三橋</b><span class="arrow">›</span><b>午餐</b><span class="arrow">›</span><b>龍水峽地縫</b><span class="arrow">›</span><b>飯店</b></div>
+      <div class="stat-row"><div>景點 <b>2</b></div><div>移動 <b>4</b></div><div>用餐 <b>2</b></div><div>住宿 <b>1</b></div></div>
+      <div class="tip"><b>今日提醒　</b>本日步行與階梯最多。長輩可依體力縮短遊覽或在景區遊客中心休息；龍水峽地縫可視體力調整。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>包車出發前往武隆</h4></div>
+    <p class="stop-addr">重慶解放碑洪崖洞桔子水晶酒店</p>
+    <div class="stop-metaline"><span>🚐 車程較長，途中安排休息</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>抵達武隆景區，轉乘景區交通</h4></div>
+    <p class="stop-addr">重慶市武隆區仙女山鎮</p>
+    <div class="stop-metaline"><span>🚌 依景區規定換乘</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E4%BB%99%E5%A5%B3%E5%B1%B1%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>天生三橋</h4></div>
+    <p class="stop-addr">重慶市武隆區仙女山鎮</p>
+    <div class="stop-metaline"><span>🏞 天龍橋、青龍橋、黑龍橋與天福官驛</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E5%A4%A9%E7%94%9F%E4%B8%89%E6%A1%A5&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-用餐">用餐</span><h4>午餐、補充水分、充分休息</h4></div>
+    <p class="stop-addr">武隆仙女山鎮</p>
+    <div class="stop-metaline"><span>🍜 休息後再繼續行程</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E4%BB%99%E5%A5%B3%E5%B1%B1%E9%95%87+%E9%A4%90%E5%8E%85&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>龍水峽地縫</h4></div>
+    <p class="stop-addr">重慶市武隆區仙女山鎮</p>
+    <div class="stop-metaline"><span>🥾 峽谷、瀑布、棧道與階梯</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E9%BE%99%E6%B0%B4%E5%B3%A1%E5%9C%B0%E7%BC%9D&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>集合返程</h4></div>
+    <p class="stop-addr">武隆仙女山鎮</p>
+    <div class="stop-metaline"><span>🚐 包車返回重慶市區</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E4%BB%99%E5%A5%B3%E5%B1%B1%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-住宿">住宿</span><h4>返回重慶飯店</h4></div>
+    <p class="stop-addr">重慶解放碑洪崖洞桔子水晶酒店</p>
+    <div class="stop-metaline"><span>🛏 早點休息</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E6%85%B6%E8%A7%A3%E6%94%BE%E7%A2%91%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%A1%94%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day" id="day4" style="--accent:var(--d4)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 5</div>
+        <div class="date">9/19（六）</div>
+        <h3>李子壩・觀音橋</h3>
+        <div class="day-meta"><span>🏨 重慶解放碑洪崖洞桔子水晶酒店</span></div>
+      </div>
+      <div class="route-chips"><b>李子壩輕軌穿樓</b><span class="arrow">›</span><b>觀音橋商圈</b><span class="arrow">›</span><b>我在重慶大屏幕</b></div>
+      <div class="stat-row"><div>景點 <b>2</b></div><div>購物 <b>1</b></div></div>
+      <div class="tip"><b>今日提醒　</b>今天行程較輕鬆；觀音橋商圈可自由逛街與休息，再到「我在重慶」大屏幕拍照。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>李子壩輕軌穿樓</h4></div>
+    <p class="stop-addr">重慶市渝中區李子壩正街62號</p>
+    <div class="stop-metaline"><span>📷 觀景台拍攝列車穿越大樓</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%9D%8E%E5%AD%90%E5%9D%9D%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC%E8%A7%82%E6%99%AF%E5%B9%B3%E5%8F%B0&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-購物">購物</span><h4>觀音橋商圈</h4></div>
+    <p class="stop-addr">重慶市江北區觀音橋步行街</p>
+    <div class="stop-metaline"><span>🛍 逛街、咖啡、自由活動</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-景點">景點</span><h4>尋找「我在重慶」大屏幕拍照</h4></div>
+    <p class="stop-addr">重慶市江北區觀音橋商圈</p>
+    <div class="stop-metaline"><span>📷 觀音橋 3788 亞洲之光大屏幕</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E8%A7%82%E9%9F%B3%E6%A1%A53788%E4%BA%9A%E6%B4%B2%E4%B9%8B%E5%85%89+%E6%88%91%E5%9C%A8%E9%87%8D%E5%BA%86%E5%A4%A7%E5%B1%8F%E5%B9%95&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+  <!-- DAY 5 -->
+  <section class="day" id="day5" style="--accent:var(--d5)">
+    <div class="day-card">
+      <div class="day-head">
+        <div class="num">DAY 6</div>
+        <div class="date">9/20（日）</div>
+        <h3>返程</h3>
+        
+      </div>
+      <div class="route-chips"><b>飯店</b><span class="arrow">›</span><b>重慶江北 T3</b><span class="arrow">›</span><b>香港轉機</b><span class="arrow">›</span><b>桃園 T2</b></div>
+      <div class="stat-row"><div>航班 <b>2</b></div><div>轉機 <b>1</b></div><div>移動 <b>2</b></div></div>
+      <div class="tip"><b>今日提醒　</b>香港轉機時間較短，抵達後請直接依「Transfer／轉機」指示前往下一個登機門。</div>
+      <ul class="timeline"><li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>飯店出發前往江北機場 T3</h4></div>
+    <p class="stop-addr">重慶江北國際機場第三航廈</p>
+    <div class="stop-metaline"><span>🚐 包車前往機場</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BAT3%E8%88%AA%E7%AB%99%E6%A5%BC&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>抵達機場，辦理報到與托運</h4></div>
+    <p class="stop-addr">重慶江北國際機場 T3 國際出發</p>
+    <div class="stop-metaline"><span>🧳 完成安檢及出境手續</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BAT3%E8%88%AA%E7%AB%99%E6%A5%BC&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>重慶江北 T3 → 香港</h4></div>
+    <p class="stop-addr">香港國際機場</p>
+    <div class="stop-metaline"><span>✈️ 第一段航班</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>香港機場轉機</h4></div>
+    <p class="stop-addr">香港國際機場轉機區</p>
+    <div class="stop-metaline"><span>🧳 直接前往下一個登機門</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>香港 → 桃園 T2</h4></div>
+    <p class="stop-addr">桃園國際機場第二航廈</p>
+    <div class="stop-metaline"><span>✈️ 第二段航班</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%8F%B0%E6%B9%BE%E6%A1%83%E5%9B%AD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%8E%A6&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li>
+<li class="stop"><div class="stop-dot-wrap"><div class="stop-dot"></div></div>
+    <div class="stop-body"><div class="stop-head"><span class="tag tag-移動">移動</span><h4>抵達桃園機場 T2，平安回家</h4></div>
+    <p class="stop-addr">桃園國際機場第二航廈</p>
+    <div class="stop-metaline"><span>🧳 入境並領取行李</span></div>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%8F%B0%E6%B9%BE%E6%A1%83%E5%9B%AD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%8E%A6&view=map&src=chatgpt_travel&callnative=1" target="_blank" rel="noopener">在高德地圖開啟</a></div></li></ul>
+    </div>
+  </section>
+
+
+  <footer>
+    重慶六日行程・<b>2026.09.15 – 09.20</b><br>
+    日期分頁與 Checklist 可離線使用；高德地圖導航需要網路
+  </footer>
+</div>
+
+<button id="backTop" type="button" aria-label="回到頂部">↑</button>
+<nav class="bottom-nav" aria-label="主要功能">
+  <a href="#day0"><span>🗓️</span>每日行程</a>
+  <a href="#transport"><span>🚇</span>交通</a>
+  <a href="#hotel"><span>🏨</span>住宿</a>
+  <a href="#todo"><span>✅</span>待辦／行李</a>
+</nav>
+
+<script>
+  // 高德地圖搜尋連結已直接寫死在 HTML 的 href（不依賴 JS），
+  // 下載後即使 JS 被封鎖，連上網路後仍可開啟高德地圖。
+
+  // 共用捲動函式
+  function scrollToDay(id){
+    var target = document.getElementById(id);
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+
+  // 下載版分頁使用真實 <a href="#dayN"> 錨點；JS 正常時改為平滑捲動，
+  // JS 被封鎖時仍可使用瀏覽器原生頁內跳轉。
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(e){
+      e.preventDefault();
+      scrollToDay(tab.dataset.target);
+    });
+  });
+
+  // 依捲動位置高亮當前分頁
+  var days = document.querySelectorAll('.day');
+  var tabMap = {};
+  tabs.forEach(function(t){ tabMap[t.dataset.target] = t; });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var tab = tabMap[entry.target.id];
+      if(!tab) return;
+      if(entry.isIntersecting){
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        tab.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      }
+    });
+  }, { root:null, rootMargin:'-35% 0px -55% 0px', threshold:0 });
+
+  days.forEach(function(d){ observer.observe(d); });
+
+  tabs[0].classList.add('active');
+
+  // ---------- 倒數計時 ----------
+  // 出發時間：2026/9/15 15:45（桃園起飛，本地時間）
+  var departAt = new Date(2026, 8, 15, 15, 45, 0);
+  var tripEnd  = new Date(2026, 8, 20, 23, 59, 59); // 10/1 回程日結束
+  var cdValue = document.getElementById('cdValue');
+
+  function renderCountdown(){
+    var now = new Date();
+    if(now > tripEnd){
+      cdValue.innerHTML = '旅程已結束，期待下次再遊山城 🌉';
+      return;
+    }
+    if(now >= departAt){
+      cdValue.innerHTML = '重慶重慶重慶旅程進行中 ✈️ 玩得開心！';
+      return;
+    }
+    var diff = departAt - now;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff % 86400000 / 3600000);
+    var m = Math.floor(diff % 3600000 / 60000);
+    cdValue.innerHTML = '距離出發還有 <b>' + d + '</b> 天 <b>' + h + '</b> 時 <b>' + m + '</b> 分';
+  }
+  renderCountdown();
+  setInterval(renderCountdown, 30000); // 每 30 秒更新，分鐘數不會漂移太久
+
+  // ---------- 當日行程自動高亮 ----------
+  // 對應表：日期字串(當地時間) -> day section id
+  var dayDates = {
+    '2026-09-15':'day0',
+    '2026-09-16':'day1',
+    '2026-09-17':'day2',
+    '2026-09-18':'day3',
+    '2026-09-19':'day4',
+    '2026-09-20':'day5'
+  };
+  function localDateStr(dt){
+    var y = dt.getFullYear();
+    var mo = String(dt.getMonth()+1).padStart(2,'0');
+    var da = String(dt.getDate()).padStart(2,'0');
+    return y + '-' + mo + '-' + da;
+  }
+  var todayId = dayDates[localDateStr(new Date())];
+  if(todayId){
+    // 1) 行程卡標題加「今天」徽章
+    var todaySection = document.getElementById(todayId);
+    var head = todaySection.querySelector('.day-head h3');
+    var badge = document.createElement('span');
+    badge.className = 'today-badge';
+    badge.textContent = '今天';
+    head.appendChild(badge);
+
+    // 2) 對應分頁加提示小點
+    var todayTab = tabMap[todayId];
+    if(todayTab){
+      var dot = document.createElement('span');
+      dot.className = 'today-dot';
+      todayTab.appendChild(dot);
+    }
+
+    // 3) 開啟頁面自動捲到今天的行程（稍等版面穩定後執行）
+    setTimeout(function(){ scrollToDay(todayId); }, 400);
+
+    // 4) 「現在進行到哪」指示：優先標記進行中的項目，否則標記最近已開始的一站
+    (function(){
+      var now = new Date();
+      var nowMin = now.getHours() * 60 + now.getMinutes();
+      var stops = todaySection.querySelectorAll('.stop');
+      var running = null, lastStarted = null;
+      stops.forEach(function(stop){
+        var timeEl = stop.querySelector('.stop-time');
+        if(!timeEl) return;
+        var times = (timeEl.textContent.match(/\d{1,2}:\d{2}/g) || []);
+        if(!times.length) return;
+        var p = times[0].split(':');
+        var start = parseInt(p[0],10)*60 + parseInt(p[1],10);
+        var end = start + 60;
+        if(times.length > 1){
+          var q = times[times.length-1].split(':');
+          end = Math.max(parseInt(q[0],10)*60 + parseInt(q[1],10), start + 1);
+        }
+        if(nowMin >= start){ lastStarted = stop; }
+        if(nowMin >= start && nowMin < end){ running = stop; }
+      });
+      var target = running || lastStarted;
+      if(target){
+        target.classList.add('now');
+        var chip = document.createElement('span');
+        chip.className = 'now-chip';
+        chip.textContent = '現在';
+        target.querySelector('.stop-head').appendChild(chip);
+      }
+    })();
+  }
+
+  // ---------- 下一站高德地圖按鈕 ----------
+  // 從相鄰站點已寫死的高德搜尋連結讀取 keyword，開啟下一站搜尋頁。
+  // 高德 App 安裝時會嘗試直接喚起；未安裝時顯示高德網頁版。
+  document.querySelectorAll('.timeline').forEach(function(tl){
+    var stops = tl.querySelectorAll('.stop');
+    for(var i = 0; i < stops.length - 1; i++){
+      var cur = stops[i].querySelector('.map-btn');
+      var next = stops[i+1].querySelector('.map-btn');
+      if(!cur || !next) continue;
+      try{
+        var origin = new URL(cur.href).searchParams.get('keyword');
+        var dest = new URL(next.href).searchParams.get('keyword');
+        if(!dest || origin === dest) continue;
+        var a = document.createElement('a');
+        a.className = 'nav-btn';
+        a.href = 'https://uri.amap.com/search?keyword=' + encodeURIComponent(dest) + '&view=map&src=chatgpt_travel&callnative=1';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = '🧭 高德開啟下一站';
+        cur.insertAdjacentElement('afterend', a);
+      }catch(e){}
+    }
+  });
+
+  // ---------- 每站名稱一鍵複製 ----------
+  // 插入位置邏輯：每站按鈕固定順序為「地圖 → 複製名稱 → 下一站導航」。
+  // 下一站導航鈕已在上面用 insertAdjacentElement('afterend', a) 插在地圖鈕之後，
+  // 此處複製鈕同樣 insertAfter 地圖鈕，會把自己插到地圖鈕與導航鈕之間，
+  // 因此本段程式碼必須排在「下一站導航鈕」產生邏輯之後執行，順序才會正確。
+  document.querySelectorAll('.stop').forEach(function(stop){
+    var mapBtn = stop.querySelector('.map-btn');
+    var nameEl = stop.querySelector('.stop-body h4');
+    if(!mapBtn || !nameEl) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    btn.textContent = '📋 複製名稱';
+    btn.addEventListener('click', function(){
+      var text = nameEl.textContent.trim();
+      function done(){
+        btn.textContent = '✓ 已複製';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = '📋 複製名稱'; btn.classList.remove('copied'); }, 1600);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text, done); });
+      }else{
+        fallbackCopy(text, done);
+      }
+    });
+    mapBtn.insertAdjacentElement('afterend', btn);
+  });
+  function fallbackCopy(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  // ---------- 匯率速算器 ----------
+  (function(){
+    var jpy = document.getElementById('fxJpy');
+    var rate = document.getElementById('fxRate');
+    var out = document.getElementById('fxResult');
+    if(!jpy || !rate || !out) return;
+    // 讀取記住的匯率（沙盒環境不支援 localStorage 時靜默略過）
+    try{
+      var saved = localStorage.getItem('fxRate');
+      if(saved && !isNaN(parseFloat(saved))) rate.value = saved;
+    }catch(e){}
+    function calc(){
+      var j = parseFloat(jpy.value);
+      var r = parseFloat(rate.value);
+      out.textContent = (!isNaN(j) && !isNaN(r)) ? Math.round(j * r).toLocaleString() : '—';
+    }
+    jpy.addEventListener('input', calc);
+    rate.addEventListener('input', function(){
+      calc();
+      try{ localStorage.setItem('fxRate', rate.value); }catch(e){}
+    });
+  })();
+
+  // ---------- Checklist 勾選記憶 ----------
+  (function(){
+    var boxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+    if(!boxes.length) return;
+    try{
+      var saved = JSON.parse(localStorage.getItem('checklistState') || '[]');
+      boxes.forEach(function(box, i){ if(saved[i]) box.checked = true; });
+    }catch(e){}
+    boxes.forEach(function(box){
+      box.addEventListener('change', function(){
+        try{
+          var state = [];
+          boxes.forEach(function(b){ state.push(b.checked); });
+          localStorage.setItem('checklistState', JSON.stringify(state));
+        }catch(e){}
+      });
+    });
+  })();
+
+  // ---------- 匯率速算快捷鈕 ----------
+  (function(){
+    var btn = document.getElementById('fxJump');
+    var card = document.querySelector('.fx-card');
+    var jpyInput = document.getElementById('fxJpy');
+    if(!btn || !card) return;
+    btn.addEventListener('click', function(){
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      if(jpyInput){ setTimeout(function(){ jpyInput.focus(); }, 450); }
+    });
+  })();
+
+  // ---------- 回到頂部 ----------
+  (function(){
+    var btn = document.getElementById('backTop');
+    if(!btn) return;
+    window.addEventListener('scroll', function(){
+      btn.classList.toggle('show', window.scrollY > 600);
+    }, {passive:true});
+    btn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  })();
+</script>
+</body>
+</html>
